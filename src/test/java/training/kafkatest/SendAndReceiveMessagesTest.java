@@ -60,7 +60,7 @@ class SendAndReceiveMessagesTest {
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
+        var consumer = new KafkaConsumer<>(properties);
         consumer.subscribe(List.of(TOPIC));
         var records = KafkaTestUtils.getRecords(consumer, Duration.of(10, ChronoUnit.SECONDS));
 

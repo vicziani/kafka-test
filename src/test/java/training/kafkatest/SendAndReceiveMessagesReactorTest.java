@@ -64,7 +64,7 @@ class SendAndReceiveMessagesReactorTest {
         var options = ReceiverOptions.<Integer, String>create(properties)
                 .subscription(Collections.singleton(TOPIC));
 
-        Flux<ReceiverRecord<Integer, String>> kafkaFlux = KafkaReceiver.create(options).receive();
+        var kafkaFlux = KafkaReceiver.create(options).receive();
 
         StepVerifier.create(kafkaFlux)
                 .expectNextMatches(r -> r.value().equals("hello kafka 1"))
